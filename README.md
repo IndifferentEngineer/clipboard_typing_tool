@@ -1,119 +1,45 @@
-Clipboard Typing Tool
+# 📋 Clipboard Typing Tool
 
-A lightweight Windows utility that reads the latest text copied to the clipboard and types it automatically into the currently focused input field using simulated keyboard input.
+A lightweight Windows utility built with Python that reads copied text and types it automatically into focused fields using simulated keyboard input. This is especially useful for repetitive data-entry tasks on websites, web portals, and desktop applications where standard clipboard pasting is disabled.
 
-It is useful for repetitive data-entry tasks on websites, web portals, online forms, and desktop applications where normal clipboard pasting is restricted or disabled.
+## 🚀 Features & Usage
 
-✨ Features
-📋 Reads the latest clipboard content
-⌨️ Types clipboard content using simulated keyboard input
-⚡ F8 to start typing
-🛑 Esc to stop the current typing operation
-🚪 Ctrl + Shift + X to exit
-📝 Supports multiline text
-🔧 Adjustable typing speed
-🖥️ Works across websites, web portals, forms, and desktop applications
-📦 Can be packaged as a standalone Windows .exe
-🐍 Built with Python
-🚀 How to Use
-1. Copy your text
+*   **⚡ Auto-Typing:** Simulates real keystrokes to bypass restrictive forms.
+*   **📝 Multiline Support:** Seamlessly types out block data (e.g., addresses or lists).
+*   **⚙️ Customizable Speed:** Adjust `TYPE_INTERVAL` in the source code to fit application response times (e.g., `0.0` for max speed, `0.10` for slow).
+*   **📦 Standalone Ready:** Easily packageable as a portable Windows executable.
 
-Select the required text and press:
+**How to Use (Quick Start)**
+1. Copy your text to the clipboard (e.g., *John Doe, 9123456780, john.doe@example.com, West Bengal*).
+2. Click inside the specific input field where you want the text entered.
+3. Press **F8** to begin the automated typing.
+4. Press **Esc** to halt a typing operation instantly, or **Ctrl + Shift + X** to exit the background program entirely.
 
-Ctrl + C
-2. Focus the input field
+## 🛠️ Setup & Compilation
 
-Click inside the field where you want the text to be entered.
+Ensure you have Python 3.x installed on your Windows machine. 
 
-3. Start typing
-
-Press:
-
-F8
-
-The tool reads the current clipboard content and types it into the focused field.
-
-4. Stop typing
-
-If you need to interrupt the operation:
-
-Esc
-5. Exit the program
-
-Press:
-
-Ctrl + Shift + X
-⌨️ Keyboard Shortcuts
-Shortcut	Action
-F8	Type clipboard content
-Esc	Stop current typing
-Ctrl + Shift + X	Exit program
-📋 Example
-
-Suppose you copy:
-
-John Doe
-9123456780
-john.doe@example.com
-West Bengal
-
-Click inside the desired input field and press F8.
-
-The tool will enter the information line-by-line, including pressing Enter between lines.
-
-🛠️ Installation from Source
-Requirements
-Windows
-Python 3.x
-
-Install the required packages:
-
+**Running from Source:**
+```bash
+# Install required packages
 pip install pyautogui pyperclip keyboard
-Run
+
+# Run the script
 python clipboard_typing_tool.py
-📦 Build Windows EXE
+```
 
-Install PyInstaller:
-
+**Building a Standalone EXE:**
+To share the tool or run it without Python installed, build it using PyInstaller. The output will be generated in the `dist/` folder as `NAPS_Typing_Tool.exe`.
+```bash
 python -m pip install pyinstaller
-
-Build the executable:
-
 python -m PyInstaller --onefile --console --name NAPS_Typing_Tool clipboard_typing_tool.py
+```
 
-The executable will be created in:
+## ⚠️ Privacy & Important Notes
 
-dist/NAPS_Typing_Tool.exe
+> **Privacy:** This tool processes clipboard content entirely locally on your machine. It does not require internet access or upload data. However, avoid copying sensitive information (like passwords) while the tool is running to prevent accidental automated entry.
 
-The .exe can then be run on Windows without requiring Python to be installed separately.
-
-⚙️ Customize Typing Speed
-
-The typing interval can be changed in the Python source:
-
-TYPE_INTERVAL = 0.0
-
-Examples:
-
-TYPE_INTERVAL = 0.0   # Maximum speed
-TYPE_INTERVAL = 0.02  # Very fast
-TYPE_INTERVAL = 0.05  # Moderate
-TYPE_INTERVAL = 0.10  # Slow
-
-A slower interval can be useful for applications that need more time to process each keystroke.
-
-🔒 Privacy
-
-The tool processes clipboard content locally on your computer. It does not require an internet connection and does not intentionally upload clipboard data to a server.
-
-Note: Because the program reads clipboard contents, avoid copying sensitive information while the tool is running if you do not want that information to be processed by the application.
-
-⚠️ Notes
-Make sure the correct input field is focused before pressing F8.
-The application must be running for the global shortcuts to work.
-pyautogui is primarily intended for keyboard-compatible characters.
-Some applications may handle simulated keyboard input differently.
-Use the tool only on websites and applications where automated keyboard input is permitted.
-📄 License
-
-MIT License
+*   Always ensure the correct input field is fully focused *before* pressing the start hotkey.
+*   The application must remain running in the background for the global shortcuts to function.
+*   The `pyautogui` library is primarily optimized for standard keyboard-compatible characters. 
+*   **License:** MIT
